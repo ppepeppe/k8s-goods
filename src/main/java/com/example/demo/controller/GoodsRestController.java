@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.UserDto;
-import com.example.demo.service.UserService;
+import com.example.demo.dto.GoodsDto;
+import com.example.demo.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * packageName    : com.example.demo.controller
- * fileName       : UserRestController
  * author         : doong2s
  * date           : 2025. 1. 12.
  * description    :
@@ -21,15 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
  * 2025. 1. 12.        doong2s       최초 생성
  */
 @RestController
-@RequestMapping("/api/v1/user")
-public class UserRestController {
+@RequestMapping("/api/v1/goods")
+public class GoodsRestController {
 
     @Autowired
-    private UserService userService;
+    private GoodsService goodsService;
 
-    @GetMapping("/{userNo}")
-    public ResponseEntity<UserDto> getUserByuserNo(@PathVariable String userNo) {
-        UserDto userDto = userService.getUserByuserNo(userNo);
-        return ResponseEntity.ok(userDto);
+    @GetMapping("/{goodsNo}")
+    public ResponseEntity<GoodsDto> getGoodsByGoodsNo(@PathVariable String goodsNo) {
+        GoodsDto goodsDto = goodsService.getGoodsByGoodsNo(goodsNo);
+        return ResponseEntity.ok(goodsDto);
     }
+
 }
